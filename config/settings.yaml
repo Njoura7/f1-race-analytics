@@ -1,0 +1,18 @@
+# Shared settings for the project.
+# Member A fills in the paths after the first load run.
+
+seasons:
+  train: [2023]
+  validation: [2024]
+  test: [2025]
+
+paths:
+  data: data
+  models: models
+  cache: .fastf1cache
+
+cleaning:
+  outlier_ratio: 1.07
+
+split:
+  allow_test: false

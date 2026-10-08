@@ -1,0 +1,12 @@
+# Stable constructor ids.
+# Member A: map every team name seen in the data (2023 to 2025) to one stable id,
+# so that renamed teams share a single id.
+
+constructors: {}
+
+# Example mappings:
+#   alfa_romeo: sauber
+#   kick_sauber: sauber
+#   alphatauri: rb
+#   rb: rb
+#   racing_bulls: rb

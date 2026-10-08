@@ -1,0 +1,10 @@
+# The 22 circuits used in the project.
+# Member A: confirm this list against the FastF1 event schedule for 2023,
+# because these are the circuits present in the 2023, 2024 and 2025 calendars.
+
+circuits: []
+
+# Example entry:
+#   - id: bahrain
+#     name: Bahrain International Circuit
+#     country: Bahrain
