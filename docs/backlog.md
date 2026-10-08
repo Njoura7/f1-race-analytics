@@ -1,88 +1,48 @@
 # Backlog
 
-Epics for members A to E. Each story has acceptance criteria and a sprint tag.
+Three one-week sprints. Each task has an owner, a type, hours, a sprint, a
+deliverable and acceptance criteria. STRETCH items are optional and extra.
 
-## Epic A: Data and cleaning (Member A)
+| ID | Owner (pair) | Type | Hours | Sprint | Deliverable | Acceptance criteria |
+| --- | --- | --- | --- | --- | --- | --- |
+| T1 | All | Apply | 0.5 each | 1 | Kickoff, read the README, agree on scope, split and function interfaces | Each member has confirmed their tasks |
+| T2 | A | Study and Apply | 2 | 1 | Load and cache race laps, weather and track status for all in-scope races 2023 to 2025 into parquet; verify circuits.yaml against the FastF1 schedule | A coverage note lists races loaded and missing |
+| T3 | B | Study | 2 | 1 | Study tyre degradation (fuel effect, compound, track evolution), a 10 line method note on fuel correction, 2 references in study_notes.md | Method note and references added |
+| T4 | C | Study | 2 | 1 | Study pit loss and undercut basics, a method note on estimating pit loss per circuit, simulator inputs and outputs defined | Note added and interfaces agreed |
+| T5 | D | Study and Apply | 2 | 1 | Study FastF1 telemetry and circuit info, choose 3 circuits, load fastest 2024 race laps, plot speed against distance for two constructors | Plot shown in notebook 04 |
+| T6 | E | Study and Apply | 2 | 1 | Define metrics and naive baselines (previous season average per constructor and circuit), write the 2025 split guard and its test, set up CI | Guard test passes and CI runs |
+| T7 | A + B (pair) | Apply | 3 each | 2 | Cleaning filters and the stint table with tyre age and fuel-corrected lap time | Notebook 01 shows before and after counts and a stint plot |
+| T8 | B | Apply | 2 | 2 | Baseline slope per stint and main model v1, trained on 2023, validated on 2024 | Notebook 02 shows the metric table |
+| T9 | B + C (pair) | Apply | 2 each | 2 | A degradation function (compound, tyre age, circuit, constructor) the simulator can call; C estimates pit loss per circuit | Function is importable and the pit loss table is ready |
+| T10 | C | Apply | 1.5 | 2 | Simple deterministic simulator for one-stop and two-stop strategies at one circuit | Simulator returns total times for both strategies |
+| T11 | D | Apply | 3 | 2 | Constructor speed profile comparison at the 3 circuits (delta time, corner minimum speeds, top speed) | Notebook 04 shows the comparison |
+| T12 | E | Apply | 3 | 2 | Metrics and backtest functions plus the app skeleton wired to saved outputs | App starts and shows the three tabs |
+| T13 | B + E (pair) | Apply | 1.5 each | 3 | Final run on 2025, once, and the results table | The table is in the README |
+| T14 | C | Apply | 2 | 3 | Compare recommended strategies with the actual 2025 strategies at the 3 circuits | Comparison table in notebook 03 |
+| T15 | D + E (pair) | Apply | 1.5 each | 3 | Finish the speed profile and strategy tabs in the app | Both tabs show results |
+| T16 | A | Apply | 1.5 | 3 | Tests for cleaning and constructors, README How to run check on a fresh clone | Tests pass and the steps are verified |
+| T17 | Lead with all | Apply | 2 | 3 | Results and key learnings in the README, presentation rehearsal using docs/presentation_outline.md | README updated and rehearsal done |
 
-- **US-A1** As a data analyst, I want the 22 circuits stored in config/circuits.yaml, so that every later step uses the same list.
-  - Acceptance criteria: the list matches the FastF1 2023 schedule, and each circuit has an id and a name.
-  - Sprint: S0
-- **US-A2** As a data analyst, I want a loader that downloads race sessions and saves parquet snapshots, so that the rest of the team works from local files.
-  - Acceptance criteria: the local cache is used, and a rerun does not download the same session twice.
-  - Sprint: S1
-- **US-A3** As a data analyst, I want the lap filters and outlier flags, so that only clean laps reach the models.
-  - Acceptance criteria: wet, safety car, VSC, red flag, in, out and lap 1 laps are dropped, and slow laps are flagged.
-  - Sprint: S1
-- **US-A4** As a data analyst, I want a season split with a 2025 guard, so that the test set is protected.
-  - Acceptance criteria: using 2025 without an explicit flag raises an error.
-  - Sprint: S1
-- **US-A5** As a data analyst, I want stable constructor ids, so that renamed teams share one id.
-  - Acceptance criteria: every team name from 2023 to 2025 maps to exactly one id.
-  - Sprint: S0
+## STRETCH (not required)
 
-## Epic B: Tire degradation (Member B)
+- Monte Carlo with safety car probability.
+- Mixed-effects degradation model.
+- Circuit similarity.
+- Extra rounds (China and Imola).
 
-- **US-B1** As a modeller, I want the tire degradation features per stint, so that I can model stint pace.
-  - Acceptance criteria: tyre age, fuel-corrected lap time and stint delta are present and documented.
-  - Sprint: S1
-- **US-B2** As a modeller, I want a linear slope baseline per stint, so that I have a simple reference.
-  - Acceptance criteria: the slope is reported per stint and runs end to end.
-  - Sprint: S1
-- **US-B3** As a modeller, I want a main model with circuit and constructor effects, so that slopes fit the data better than the baseline.
-  - Acceptance criteria: the model beats the baseline MAE on 2024 validation.
-  - Sprint: S2
-- **US-B4** As a modeller, I want slopes per compound, so that question 1 can be answered.
-  - Acceptance criteria: slopes are reported per constructor and compound with an error estimate.
-  - Sprint: S3
+## Member load
 
-## Epic C: Pit strategy (Member C)
+Kickoff T1 is included. STRETCH items are excluded.
 
-- **US-C1** As a strategist, I want pit loss per circuit, so that the simulator knows the cost of a stop.
-  - Acceptance criteria: pit loss is reported per circuit from the in lap and out lap delta.
-  - Sprint: S2
-- **US-C2** As a strategist, I want safety car rates from 2023 and 2024, so that Monte Carlo uses a fair probability.
-  - Acceptance criteria: 2025 is not used for the rate.
-  - Sprint: S2
-- **US-C3** As a strategist, I want a Monte Carlo simulator, so that I can rank candidate strategies.
-  - Acceptance criteria: the simulator returns a total race time distribution per candidate.
-  - Sprint: S3
-- **US-C4** As a strategist, I want a comparison with the actual 2025 strategies, so that question 2 can be answered.
-  - Acceptance criteria: the time delta and stop-lap agreement are reported.
-  - Sprint: S4
+| Member | Hours |
+| --- | --- |
+| Lead | 2.5 |
+| A | 7 |
+| B | 11 |
+| C | 8 |
+| D | 7 |
+| E | 8.5 |
 
-## Epic D: Speed profiles (Member D)
-
-- **US-D1** As an analyst, I want telemetry on a common distance grid, so that constructors can be compared fairly.
-  - Acceptance criteria: every lap is resampled on the same grid step.
-  - Sprint: S2
-- **US-D2** As an analyst, I want corner segmentation and minimum corner speeds, so that circuit profiles can be described.
-  - Acceptance criteria: corners come from the circuit info, not from manual input.
-  - Sprint: S3
-- **US-D3** As an analyst, I want cumulative delta time between constructors, so that speed differences are clear.
-  - Acceptance criteria: the delta trace is shown per circuit.
-  - Sprint: S3
-- **US-D4** As an analyst, I want a constructor comparison table per circuit, so that question 3 can be answered.
-  - Acceptance criteria: the table lists per-circuit summary metrics for each constructor.
-  - Sprint: S4
-
-## Epic E: Evaluation, app and tests (Member E)
-
-- **US-E1** As an evaluator, I want metric helpers, so that scores are computed the same way everywhere.
-  - Acceptance criteria: MAE, slope error and stop-lap agreement are implemented and tested.
-  - Sprint: S2
-- **US-E2** As an evaluator, I want validation on 2024 and a single final test on 2025, so that the split is respected.
-  - Acceptance criteria: the final test only runs with the explicit flag.
-  - Sprint: S4
-- **US-E3** As a developer, I want placeholder tests and a CI workflow, so that changes do not break the repo.
-  - Acceptance criteria: ruff and pytest run cleanly in CI.
-  - Sprint: S1
-- **US-E4** As a presenter, I want a Streamlit app with three tabs, so that results can be shown live.
-  - Acceptance criteria: the app starts and shows the three result tabs.
-  - Sprint: S4
-
-## Cross-track dependencies
-
-- B and D depend on A for clean laps, telemetry and the season split.
-- C depends on B for the degradation model.
-- E depends on A, B, C and D for results to evaluate and show.
-- The final 2025 test depends on B, C and D being frozen after validation.
+B and E are above the 8 hour target. To bring them down, the lead can move B's
+study note (T3) into T8 and split each pair task so that one owner leads and the
+other only reviews.

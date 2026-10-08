@@ -1,11 +1,11 @@
 """builds speed profile features on a distance grid.
 
 Steps to implement:
-1. Resample car telemetry on a common distance grid for each lap.
+1. Resample car telemetry on a common distance grid for each fastest lap.
 2. Extract speed, throttle and brake traces.
-3. Segment corners from the circuit info.
+3. Segment the corners from the circuit info.
 4. Compute the minimum speed per corner, the top speed and the full throttle share.
-5. Find braking points and compute the cumulative delta time between constructors.
+5. Compute the cumulative delta time between constructors.
 6. Return one frame with the telemetry features per constructor and circuit.
 """
 

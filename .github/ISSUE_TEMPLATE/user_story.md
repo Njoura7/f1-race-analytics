@@ -1,27 +1,35 @@
 ---
-name: User story
-about: Create a user story for the backlog
-title: "[US-XX] "
-labels: user story
+name: Task
+about: Create a task that matches the backlog table
+title: "[T-XX] "
+labels: task
 ---
 
-## User story
+## ID
 
-As a ..., I want ..., so that ...
+T-XX
+
+## Owner (and pair partner)
+
+Member A, or A + B (pair)
+
+## Type
+
+Study, Apply, or Study and Apply
+
+## Hours
+
+0
+
+## Sprint
+
+1, 2 or 3
+
+## Deliverable
+
+What this task produces.
 
 ## Acceptance criteria
 
 - [ ] Criterion one.
 - [ ] Criterion two.
-
-## Sprint
-
-S0, S1, S2, S3, S4 or S5
-
-## Owner
-
-Member A, B, C, D or E
-
-## Cross-track dependencies
-
-List any other story this depends on.

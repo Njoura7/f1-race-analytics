@@ -5,8 +5,7 @@ Steps to implement:
 2. Compute stint lengths and the number of stops.
 3. Build the compound sequence per driver and race.
 4. Compute the safety car rate per circuit from 2023 and 2024 only.
-5. Estimate an undercut window per circuit.
-6. Return one frame ready for the strategy simulator.
+5. Return one frame ready for the strategy simulator.
 """
 
 from __future__ import annotations

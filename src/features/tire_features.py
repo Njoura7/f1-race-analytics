@@ -4,9 +4,8 @@ Steps to implement:
 1. Add tyre age in laps from the stint start.
 2. Add fuel-corrected lap time using the lap number as a fuel burn proxy.
 3. Add the lap time delta to the first clean lap of the stint.
-4. Add the traffic proxy as the gap to the car ahead.
-5. Keep circuit id, constructor id, compound and temperatures.
-6. Return one frame ready for the degradation model.
+4. Keep stint number, compound, track and air temperature, circuit id and constructor id.
+5. Return one frame ready for the degradation model.
 """
 
 from __future__ import annotations
@@ -26,11 +25,6 @@ def add_fuel_corrected_lap_time(laps: pd.DataFrame) -> pd.DataFrame:
 
 def add_stint_delta(laps: pd.DataFrame) -> pd.DataFrame:
     """Add the lap time delta to the first clean lap of the stint."""
-    raise NotImplementedError
-
-
-def add_traffic_proxy(laps: pd.DataFrame) -> pd.DataFrame:
-    """Add the gap to the car ahead as a traffic proxy."""
     raise NotImplementedError
 
 

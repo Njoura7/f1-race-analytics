@@ -1,12 +1,12 @@
 # SCRUM
 
-Short and practical. Weeks are relative to the start of the project.
+Short and practical. Three one-week sprints. Weeks are relative to the start.
 
 ## Roles
 
 | Member | Role |
 | --- | --- |
-| Team Lead | Product owner and Scrum master. Runs the sprint board, the weekly sync, status updates, the README and the presentation. No coding tasks. |
+| Lead | Product owner and Scrum master. Runs the board, the sync, the status update, the README and the presentation. No coding tasks. |
 | Member A | Data and cleaning: loader, cleaning, split, circuit and constructor config. |
 | Member B | Tire degradation: features and model. |
 | Member C | Pit strategy: depends on B. |
@@ -15,10 +15,10 @@ Short and practical. Weeks are relative to the start of the project.
 
 ## Cadence
 
-- Sprint 0 (Week 1): setup and agreeing on function interfaces.
-- Sprints 1 to 4 last 2 weeks each (Weeks 2 to 9).
-- Sprint 5 (Week 10): polish and the presentation.
-- One weekly 20 minute sync. Review and retro at the end of each sprint.
+- Three one-week sprints. Sprint 1: study and data. Sprint 2: build. Sprint 3: evaluate and present.
+- One 20 minute weekly sync that doubles as the sprint review and the planning for the next sprint.
+- The lead posts the weekly update in `docs/status.md` (done, in progress, blocked).
+- Time budget: about 2 to 3 hours per member per week.
 
 ## Definition of Done
 
@@ -29,11 +29,8 @@ Short and practical. Weeks are relative to the start of the project.
 
 ## Sprint goals
 
-| Sprint | Weeks | Goal |
+| Sprint | Week | Goal |
 | --- | --- | --- |
-| S0 | Week 1 | Setup and interfaces agreed. |
-| S1 | Weeks 2 to 3 | Load, clean, EDA, baselines. |
-| S2 | Weeks 4 to 5 | Model v1 per track, validated on 2024. |
-| S3 | Weeks 6 to 7 | Model v2, tuning, strategy simulator on validation. |
-| S4 | Weeks 8 to 9 | Final run on 2025, app, results in the README. |
-| S5 | Week 10 | Polish and presentation. |
+| Sprint 1 | Week 1 | Study and data. |
+| Sprint 2 | Week 2 | Build. |
+| Sprint 3 | Week 3 | Evaluate and present. |

@@ -2,10 +2,11 @@
 
 Steps to implement:
 1. Fit a simple linear slope per stint as the baseline.
-2. Fit the main model per track with circuit and constructor effects, using
-   mixed-effects or gradient boosting.
+2. Fit the main model per track with gradient boosting or linear regression,
+   using circuit, compound and constructor features.
 3. Predict stint pace and per-constructor slopes.
 4. Save artifacts under models/.
+5. STRETCH: replace the main model with a mixed-effects model.
 """
 
 from __future__ import annotations

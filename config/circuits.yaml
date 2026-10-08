@@ -1,6 +1,8 @@
 # The 22 circuits used in the project.
 # Member A: confirm this list against the FastF1 event schedule for 2023,
-# because these are the circuits present in the 2023, 2024 and 2025 calendars.
+# because these are the official rounds present in the 2023, 2024 and 2025 calendars.
+# The extra 2024 and 2025 rounds (China and Imola) are added only when
+# config/settings.yaml has include_extra_rounds: true.
 
 circuits: []
 

@@ -1,10 +1,14 @@
 # Shared settings for the project.
-# Member A fills in the paths after the first load run.
+# Member A fills in the paths and circuits after the first load run.
 
 seasons:
   train: [2023]
   validation: [2024]
   test: [2025]
+
+scope:
+  # Set to true to add the extra 2024 and 2025 rounds (China and Imola).
+  include_extra_rounds: false
 
 paths:
   data: data
@@ -16,3 +20,8 @@ cleaning:
 
 split:
   allow_test: false
+
+speed_profile:
+  # Telemetry is only loaded for these 3 circuits, fastest race laps of 2024.
+  season: 2024
+  circuits: []
