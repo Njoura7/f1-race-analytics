@@ -32,7 +32,7 @@ final test 2025), a Streamlit app, and `docs/study_notes.md`.
 
 | Name | Role |
 | --- | --- |
-| Lead name | Lead: product owner and Scrum master, no coding tasks |
+| Lead name | Lead: product owner and Scrum master |
 | Member A | Data and cleaning |
 | Member B | Tire degradation |
 | Member C | Pit strategy (depends on B) |
