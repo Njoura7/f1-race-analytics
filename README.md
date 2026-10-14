@@ -32,14 +32,14 @@ final test 2025), a Streamlit app, and `docs/study_notes.md`.
 
 | Name | Role |
 | --- | --- |
-| Lead name | Lead: product owner and Scrum master |
-| Member A | Data and cleaning |
-| Member B | Tire degradation |
-| Member C | Pit strategy (depends on B) |
-| Member D | Speed profiles |
-| Member E | Evaluation, app and tests |
+| Aziz Najjar | Lead: product owner and Scrum master |
+| Bouderhem Fares, Temirova Jazeera | Data and cleaning (pair) |
+| Grigoryan Hayk, Nayan Saidul Islam | Tire degradation (pair) |
+| Cupi Olivares Jair Alessandro | Pit strategy (depends on tire degradation) |
+| Petro Waseem | Speed profiles |
+| Jahiu Erblina | Evaluation, app and tests |
 
-Time budget: 3 weeks, about 2 to 3 hours per member per week, roughly 8 hours
+Time budget: 6 weeks, about 2 to 3 hours per member per week, roughly 8 hours
 per member in total. Tasks are small. Anything extra is marked STRETCH.
 
 ## Workflow steps
