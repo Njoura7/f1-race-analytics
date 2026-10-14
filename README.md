@@ -1,3 +1,4 @@
+
 # F1 Telemetry and Race Analytics
 
 A Data Science Club (ELTE) project. We study official Formula 1 race data from
@@ -159,3 +160,5 @@ project. Nothing is invented here.
 ## Key learnings
 
 Placeholder. The team fills this in after the final presentation.
+
+
