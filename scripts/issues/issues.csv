@@ -1,8 +1,8 @@
 id,title,assignees,reviewer,hours,workstream,type,depends_on,done_when,milestone
 K1,"Confirm your pair and fill in your issues (description, estimate, plan)",Everyone,Aziz,0.5,all,admin,,"Each of your issues has a description, your own estimate and a short plan or suggestion",Phase 1: Start
-D0,Export the 2023 seed lap table from the pipeline marts and commit it,Aziz,Fares,2,data,apply,,data/seed/laps_2023_v0.parquet and its README are in main,Phase 1: Start
+D0,"Sample lap table: 3 dry 2023 races loaded with FastF1, saved as parquet, following the data contract",Waseem,Fares,1.5,data,apply,D0b,"data/sample/laps_2023_sample_v0.parquet and a short README are in main, columns follow docs/data_contract.md, is_valid comes from FastF1 IsAccurate plus the flags",Phase 1: Start
 D0b,Write docs/data_contract.md (columns of the lap table),Aziz,Jazeera,1,data,apply,,All three pairs have read it and agree,Phase 1: Start
-D3a,"v0 loader: 2023 races, 22 circuits, cached parquet","Fares, Jazeera",Aziz,2.5,data,apply,,"Row counts per race match the seed, coverage note lists loaded and missing races",Phase 1: Start
+D3a,"v0 loader: 2023 races, 22 circuits, cached parquet","Fares, Jazeera",Aziz,2.5,data,apply,,"Row counts for the 3 sample races match the sample table, coverage note lists loaded and missing races",Phase 1: Start
 T1,"Study tyre degradation, 10 line note on fuel correction, look at the seed table",Hayk,Jair,2,tyres,study,D0,Note in docs/study_notes.md with 2 references,Phase 1: Start
 P1,"Study pit loss and the undercut, list simulator inputs and outputs",Jair,Hayk,2,pit,study,D0,Inputs and outputs listed in the notebook,Phase 1: Start
 S1,"Study FastF1 telemetry, pick 3 circuits, plot speed against distance for two teams",Waseem,Erblina,2,speed,study,,One plot per circuit,Phase 1: Start
@@ -19,7 +19,7 @@ T3,"Baseline slope per stint, validated on 2024","Hayk, Jair",Aziz,2,tyres,apply
 T4a,Main model v1 (gradient boosting): features and training on 2023,"Hayk, Jair",Aziz,2,tyres,apply,T3,"Model trains and saves, first metrics on 2024",Phase 2: Build
 S3,"Delta time, corner minimum speeds and top speed for the 3 circuits",Waseem,Erblina,3,speed,apply,S2,Notebook 04 shows the comparison,Phase 2: Build
 D4b,"v1 filters: 107 percent flag, outlier rule, tests","Fares, Jazeera",Aziz,2.5,data,apply,D3b,"Tests pass, before and after counts shown",Phase 3: Connect
-D7,"Compare repo output with the seed, then retire the seed",Fares,Jazeera,1,data,apply,D4b,"Comparison test passes, seed removed from the repo",Phase 3: Connect
+D7,"Compare repo output with the sample table, then retire the sample",Fares,Jazeera,1,data,apply,D4b,"Comparison test passes, the sample is removed from the repo",Phase 3: Connect
 T4b,Main model v1: tune on 2024 and compare with the baseline,"Hayk, Jair",Aziz,1.5,tyres,apply,T4a,Metric table compares baseline and main model,Phase 3: Connect
 P3,"Deterministic one-stop and two-stop simulator at one circuit, using the baseline slope",Jair,Hayk,2.5,pit,apply,"T3, P2",Simulator returns total race time per plan,Phase 3: Connect
 E3,Backtest function and app skeleton wired to saved outputs,Erblina,Waseem,3,eval,apply,E2,App shows one saved result,Phase 3: Connect

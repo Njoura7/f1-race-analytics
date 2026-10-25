@@ -1,5 +1,8 @@
 name: Create project issues
 
+# Creates missing issues and keeps existing open ones in sync with scripts/issues/issues.json.
+# Safe to run again. Closed issues and issue bodies are not touched, unless you list IDs below.
+
 on:
   workflow_dispatch:
     inputs:
@@ -7,19 +10,27 @@ on:
         description: "Only print what would happen"
         type: boolean
         default: true
+      update_body:
+        description: "Issue IDs whose body should be rewritten, for example D0,D7 (empty means none)"
+        type: string
+        default: ""
 
 permissions:
   contents: read
   issues: write
 
 jobs:
-  create:
+  sync:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Create labels, milestones and issues
+      - name: Create and sync issues
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DRY: ${{ inputs.dry_run }}
+          BODY_IDS: ${{ inputs.update_body }}
         run: |
-          if [ "${{ inputs.dry_run }}" = "true" ]; then FLAG="--dry-run"; else FLAG=""; fi
-          python3 scripts/issues/create_issues.py "${{ github.repository }}" $FLAG
+          ARGS=""
+          if [ "$DRY" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          if [ -n "$BODY_IDS" ]; then ARGS="$ARGS --update-body $BODY_IDS"; fi
+          python3 scripts/issues/create_issues.py "${{ github.repository }}" $ARGS

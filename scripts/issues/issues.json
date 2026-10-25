@@ -13,14 +13,14 @@
  },
  {
   "id": "D0",
-  "title": "Export the 2023 seed lap table from the pipeline marts and commit it",
-  "assignees": "Aziz",
+  "title": "Sample lap table: 3 dry 2023 races loaded with FastF1, saved as parquet, following the data contract",
+  "assignees": "Waseem",
   "reviewer": "Fares",
-  "hours": 2,
+  "hours": 1.5,
   "workstream": "data",
   "type": "apply",
-  "depends_on": "",
-  "done_when": "data/seed/laps_2023_v0.parquet and its README are in main",
+  "depends_on": "D0b",
+  "done_when": "data/sample/laps_2023_sample_v0.parquet and a short README are in main, columns follow docs/data_contract.md, is_valid comes from FastF1 IsAccurate plus the flags",
   "milestone": "Phase 1: Start"
  },
  {
@@ -44,7 +44,7 @@
   "workstream": "data",
   "type": "apply",
   "depends_on": "",
-  "done_when": "Row counts per race match the seed, coverage note lists loaded and missing races",
+  "done_when": "Row counts for the 3 sample races match the sample table, coverage note lists loaded and missing races",
   "milestone": "Phase 1: Start"
  },
  {
@@ -241,14 +241,14 @@
  },
  {
   "id": "D7",
-  "title": "Compare repo output with the seed, then retire the seed",
+  "title": "Compare repo output with the sample table, then retire the sample",
   "assignees": "Fares",
   "reviewer": "Jazeera",
   "hours": 1,
   "workstream": "data",
   "type": "apply",
   "depends_on": "D4b",
-  "done_when": "Comparison test passes, seed removed from the repo",
+  "done_when": "Comparison test passes, the sample is removed from the repo",
   "milestone": "Phase 3: Connect"
  },
  {
