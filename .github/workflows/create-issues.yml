@@ -1,0 +1,25 @@
+name: Create project issues
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only print what would happen"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create labels, milestones and issues
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then FLAG="--dry-run"; else FLAG=""; fi
+          python3 scripts/issues/create_issues.py "${{ github.repository }}" $FLAG

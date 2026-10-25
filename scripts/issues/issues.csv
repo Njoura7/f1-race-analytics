@@ -1,0 +1,35 @@
+id,title,assignees,reviewer,hours,workstream,type,depends_on,done_when,milestone
+K1,"Confirm your pair and fill in your issues (description, estimate, plan)",Everyone,Aziz,0.5,all,admin,,"Each of your issues has a description, your own estimate and a short plan or suggestion",Phase 1: Start
+D0,Export the 2023 seed lap table from the pipeline marts and commit it,Aziz,Fares,2,data,apply,,data/seed/laps_2023_v0.parquet and its README are in main,Phase 1: Start
+D0b,Write docs/data_contract.md (columns of the lap table),Aziz,Jazeera,1,data,apply,,All three pairs have read it and agree,Phase 1: Start
+D3a,"v0 loader: 2023 races, 22 circuits, cached parquet","Fares, Jazeera",Aziz,2.5,data,apply,,"Row counts per race match the seed, coverage note lists loaded and missing races",Phase 1: Start
+T1,"Study tyre degradation, 10 line note on fuel correction, look at the seed table",Hayk,Jair,2,tyres,study,D0,Note in docs/study_notes.md with 2 references,Phase 1: Start
+P1,"Study pit loss and the undercut, list simulator inputs and outputs",Jair,Hayk,2,pit,study,D0,Inputs and outputs listed in the notebook,Phase 1: Start
+S1,"Study FastF1 telemetry, pick 3 circuits, plot speed against distance for two teams",Waseem,Erblina,2,speed,study,,One plot per circuit,Phase 1: Start
+E1,"Define metrics and naive baselines, write the 2025 split guard test",Erblina,Waseem,2,eval,apply,,Test fails if 2025 is used without the flag,Phase 1: Start
+D4a,"v0 flags: in and out laps, lap 1, safety car, VSC, red flag, wet","Fares, Jazeera",Aziz,2.5,data,apply,D3a,"Flag columns follow the data contract, tests pass",Phase 2: Build
+D2,"Check the 22 circuits against the FastF1 schedule, update config/circuits.yaml",Fares,Jazeera,1,data,apply,,List agrees with the schedule,Phase 2: Build
+T2,Tyre age and fuel-corrected pace features on the stint table,Hayk,Jair,2,tyres,apply,T1,Stint table saved with the new columns,Phase 2: Build
+P2,Estimate pit loss per circuit from the laps,Jair,Hayk,2,pit,apply,P1,Table of pit loss per circuit,Phase 2: Build
+S2,Resample telemetry onto a distance grid for the 3 circuits,Waseem,Erblina,2,speed,apply,S1,One aligned table per circuit,Phase 2: Build
+E2,Set up CI (ruff and pytest) and the metric helpers,Erblina,Waseem,2,eval,apply,E1,CI is green on main,Phase 2: Build
+D3b,Load 2024 and 2025 races into cached parquet,"Fares, Jazeera",Aziz,2,data,apply,D3a,Coverage note updated for all three seasons,Phase 2: Build
+D5,"EDA notebook: where is data thin per team, circuit and compound?",Jazeera,Fares,1.5,data,apply,D4a,Notebook 01 shows coverage plots,Phase 2: Build
+T3,"Baseline slope per stint, validated on 2024","Hayk, Jair",Aziz,2,tyres,apply,T2,Metric table in notebook 02,Phase 2: Build
+T4a,Main model v1 (gradient boosting): features and training on 2023,"Hayk, Jair",Aziz,2,tyres,apply,T3,"Model trains and saves, first metrics on 2024",Phase 2: Build
+S3,"Delta time, corner minimum speeds and top speed for the 3 circuits",Waseem,Erblina,3,speed,apply,S2,Notebook 04 shows the comparison,Phase 2: Build
+D4b,"v1 filters: 107 percent flag, outlier rule, tests","Fares, Jazeera",Aziz,2.5,data,apply,D3b,"Tests pass, before and after counts shown",Phase 3: Connect
+D7,"Compare repo output with the seed, then retire the seed",Fares,Jazeera,1,data,apply,D4b,"Comparison test passes, seed removed from the repo",Phase 3: Connect
+T4b,Main model v1: tune on 2024 and compare with the baseline,"Hayk, Jair",Aziz,1.5,tyres,apply,T4a,Metric table compares baseline and main model,Phase 3: Connect
+P3,"Deterministic one-stop and two-stop simulator at one circuit, using the baseline slope",Jair,Hayk,2.5,pit,apply,"T3, P2",Simulator returns total race time per plan,Phase 3: Connect
+E3,Backtest function and app skeleton wired to saved outputs,Erblina,Waseem,3,eval,apply,E2,App shows one saved result,Phase 3: Connect
+T5,"Expose a degradation function (compound, tyre age, circuit, team) for the simulator","Hayk, Jair",Aziz,2,tyres,apply,T4b,The simulator calls it from a notebook,Phase 3: Connect
+E4,"Final run on 2025, once, and the results table in the README","Erblina, Hayk",Aziz,1.5,eval,apply,"T4b, E3","Table in README, the 2025 flag used only here",Phase 4: Evaluate and present
+S4,Speed profile and strategy tabs in the app,"Waseem, Erblina",Aziz,1.5,speed,apply,"S3, E3",Both tabs show real results,Phase 4: Evaluate and present
+D6,"Tests for cleaning and team mapping, check How to run on a fresh clone",Jazeera,Fares,1.5,data,apply,D4b,A new clone runs make setup and make test,Phase 4: Evaluate and present
+P4,Compare recommended strategies with the actual 2025 strategies,Jair,Hayk,2,pit,apply,"P3, T5",Time delta and stop-lap agreement reported,Phase 4: Evaluate and present
+L1,"Results and key learnings in the README, rehearse the talk with docs/presentation_outline.md",Everyone,Aziz,2,lead,admin,"E4, P4","README placeholders filled, talk rehearsed",Phase 4: Evaluate and present
+X1,STRETCH: mixed-effects model for tyre degradation,"Hayk, Jair",Aziz,3,tyres,stretch,T4b,Agree scope in the sync first,Backlog (stretch)
+X2,STRETCH: Monte Carlo safety car in the simulator,Jair,Hayk,3,pit,stretch,P3,Agree scope in the sync first,Backlog (stretch)
+X3,STRETCH: circuit similarity from speed profiles,"Waseem, Erblina",Aziz,3,speed,stretch,S3,Agree scope in the sync first,Backlog (stretch)
+X4,STRETCH: add China and Imola with include_extra_rounds,"Fares, Jazeera",Aziz,2,data,stretch,D3b,Agree scope in the sync first,Backlog (stretch)
